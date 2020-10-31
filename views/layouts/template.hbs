@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="subcon">
+            <h1 class="text-center text-white no-margin">News Search</h1>
+        </div>
+    </div>
+    <div class="container">
+        <form action="/search" method="GET">
+            <div class="subcon text-center">
+                <label class="text-white" for="search"></label>
+                <div>
+                    <input class="fill text-center padding text-lg" type="text" name="search" id="search" required="required" placeholder="Enter your search terms.">
+                </div>
+            </div>
+            <div class="subcon text-center">
+                <div class="half">
+                    <h3 class="no-margin text-white">Which country would you look to retrieve news from?</h3>
+                    {{#each images}}
+                        <label class="inline-block auto margin hover-img" for="{{this}}">
+                            <input type="radio" name="images" id="{{this}}" value="{{this}}">
+                            <img src="/images/{{this}}.png" alt="">
+                        </label>
+                    {{/each}}
+                </div>
+                <div class="half">
+                    <h3 class="no-margin text-white">Please select your category of news.</h3>
+                    <select class="fill text-center text-lg margin" size="7" name="category" id="category">
+                    {{#each category}}
+                        <option value="{{this}}">{{this}}</option>
+                    {{/each}}
+                    </select> 
+                    <div class="subcon text-center margin">
+                        <input class="text-lg" type="submit" value="Search now!">
+                    </div>
+                </div>
+            </div>
+            
+        </form>
+    </div>
+    {{#if searching}}
+        {{{body}}}
+    {{/if}}
+</body>
+</html>

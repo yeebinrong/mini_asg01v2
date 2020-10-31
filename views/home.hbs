@@ -1,0 +1,20 @@
+<div class="container">
+    <h2 class="text-white text-center">You are searching for news about {{search}} in {{country}} related to {{cat}}.</h2>
+</div>
+<div class="container">
+    {{#if articles}}
+        {{#each articles}}
+            <div class="subcon hover-article">
+                <a href="{{this.url}}">
+                    <h2 class="text-black text-center">{{this.title}}</h2   >
+                    <h4 class="text-black text-center">{{this.description}}</h4>
+                    <img class="padding" src="{{this.urlToImage}}" alt="">
+                    <h5 class="text-black text-center">{{this.publishedAt}}</h5>
+                </a>
+                
+            </div>
+        {{/each}}
+    {{else}}
+        <h3 class="text-white text-center">You have returned no results!</h3>
+    {{/if}}
+</div>
